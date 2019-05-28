@@ -1,31 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link href="https://support.ministryplatform.com/portal/css/MPP_Style_Bundle.min.css?v=9.10.27" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>{% include "css/main.css" %}</style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
     <title>{{ title }}</title>
-  </head>
-  <body class="{{ bodyClass }}" >
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Custom styles for this template -->
+    <!--<link href="navbar.css" rel="stylesheet">-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="https://support.ministryplatform.com/portal/_DomainData/support.ministryplatform.com/skins/Responsive/css/portal.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/additional-methods.min.js"></script>
+	<script type="text/javascript">var $mpp = $.noConflict(true); console.log('MPP Jquery Loaded: ' + $mpp().jquery);</script>
+	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+	<script type="text/javascript">
+	   var portalPhoneMask = 'xxx-xxx-xxxx';
+	   function loadPortalScripts() {
+	       console.log('Loading Portal Scripts');
+	       var script = document.createElement('script');
+	       script.onload = function() {
+	           console.log('Portal Script Bundle Loaded');
+	           loaded = true;
+	       };
+	       script.src = '/portal/js/MPP_Scripts.min.js?v=9.10.27';
+	       document.getElementsByTagName('head')[0].appendChild(script);
+	   }
+	   loadPortalScripts();
+	   var DEBUG = true;
+	</script>
+</head>
+<body>
+    <!-- Container -->
     <div class="container">
-      <header>
-        <ul class="nav">
-          <li>
-            <a href="/">home<small>where the heart is</small></a>
-          </li>
-          <li>
-            <a href="/about">about<small>all about this</small></a>
-          </li>
-        </ul>
-        <h1>{{ title }}</h1>
-        {%- if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
-      </header>
-      {{ content | safe }}
-      {% include "footer.njk" %}
-      <script>{% include "js/scripts.js" %}</script>
+        <!-- Main Navigation -->
+        {% include "nav.njk" %}
+        <!-- /end of Main Navigation -->
+
+
+                <!-- Main component for a primary marketing message or call to action -->
+        <div>
+            <form name="form1" method="post" action="https://support.ministryplatform.com/portal/get_content.aspx?page=%2fportal%2fdefault.aspx" id="form1">
+                <div>
+                    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIwOTY2NDMxNDkPFgIeE1ZhbGlkYXRlUmVxdWVzdE1vZGUCARYCAgMPFgIeBmFjdGlvbgU2L3BvcnRhbC9nZXRfY29udGVudC5hc3B4P3BhZ2U9JTJmcG9ydGFsJTJmZGVmYXVsdC5hc3B4FgQCAQ9kFgQCAw9kFgICCw8PFgQeC05hdmlnYXRlVXJsBRQvcG9ydGFsL2RlZmF1bHQuYXNweB4EVGV4dAUUL3BvcnRhbC9kZWZhdWx0LmFzcHhkZAIFDw8WAh4HVmlzaWJsZWhkFgICAw8WAh4FVmFsdWUFDS9kZWZhdWx0LmFzcHhkAgMPFgIfAwUtPGgzPldlbGNvbWUgdG8gb3VyIGNodXJjaCdzIHBvcnRhbCBwYWdlITwvaDM+ZGSmRf6IAuB/nQXZBLZSsV9Ztx3PS7duU/ccPTLg4KEMjw==" />
+                </div>
+
+                <div>
+                    {{ content | safe }}
+                </div>
+    
+                <div>
+	                <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="340D0D92" />
+                </div>
+            </form>
+        </div>
+
+        
+
+
+
+
     </div>
-  </body>
+    <!-- /End of Container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
 </html>
-
-
-
